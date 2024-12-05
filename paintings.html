@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Information -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diwa ng Tarlac Gallery</title>
+
+    <link rel="shortcut icon" href="ficon.png" type="image/x-icon">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Inline Custom Styles -->
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+            font-weight: bold;
+            background-image: url('GRAYBG.png');
+            
+        }
+
+        /* Hover Effect for Images */
+        .gallery-item img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.05); /* Slightly enlarge the image */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a shadow */
+        }
+
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+        }
+
+      #slider {
+    margin: 0 auto;
+    width: 800px;
+    max-width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 50%; /* Align vertically */
+    left: 50%; /* Align horizontally */
+    transform: translate(-50%, -50%);
+}
+
+#slider h2 {
+    float: none;
+    font-size: 35px;
+    color: #1e3706;
+    text-align: center;
+    text-shadow: 1px 1px 3px black;
+}
+
+#slides {
+    padding: 10px;
+    border: 3px solid whitesmoke;
+    background: whitesmoke;
+    position: relative;
+    box-shadow: 20px 20px black;
+    z-index: 1;
+    border-radius: 10px;
+}
+
+#overflow {
+    width: 100%;
+    overflow: hidden;
+}
+
+#slides .inner {
+    transition: margin-left 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+    width: 400%;
+    line-height: 0;
+    height: 200px;
+    animation: slideTransition 20s infinite;
+}
+
+#slides .slide {
+    width: 25%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #1e3706;
+    text-shadow: 0.5px 0.5px 3px black;
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #f3f4f6; /* Light gray background */
+    padding: 0; /* Remove default padding for the main footer */
+    font-family: Arial, sans-serif;
+    color: #1e1e1e;
+}
+
+/* Green header section */
+.footer-header {
+    background-color: #1e3706; /* Green background */
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.footer-header h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Footer content */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Makes it responsive */
+    max-width: 1200px;
+    margin: 1 auto;
+    padding: 20px;
+    background-color: #f3f4f6;
+}
+
+.footer-section {
+    flex: 1; /* Equal width for all sections */
+    min-width: 200px; /* Ensures it fits smaller screens */
+    margin: 10px;
+}
+
+.footer-section h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #1e3706; /* Slight green for headers */
+}
+
+.footer-section p {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #4a4a4a;
+}
+
+/* Footer bottom section */
+.footer-bottom {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 10px;
+    color: #606060;
+    padding: 10px;
+    background-color: #e5e7eb; /* Light gray background for the bottom */
+    border-top: 1px solid #d1d5db; /* Divider line */
+}
+
+#image4{
+    max-width: 100%;
+        height: auto;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 10px;
+}
+@keyframes slideTransition {
+    0% {
+        margin-left: 0;
+    }
+    25% {
+        margin-left: -100%;
+    }
+    50% {
+        margin-left: -200%;
+    }
+    75% {
+        margin-left: -300%;
+    }
+    100% {
+        margin-left: 0;
+    }
+}
+
+/* Media Query for Responsive Adjustment */
+@media (max-width: 600px) {
+    #slider {
+        width: 100%; /* Full width on smaller screens */
+    }
+
+    #slides .inner {
+        height: 300px; /* Adjust height for smaller screens */
+    }
+}
+        
+ /* Style for the HR line */
+ hr {
+            border: none;
+            height: 2px;
+            background-color: white;
+            width: 100%;
+            margin: auto;
+ }
+
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    
+    <!-- ========== MAIN CONTENT ========== -->
+    <main>
+        <!-- Hero Section -->
+        <div class="relative">
+            <div class="relative bg-cover bg-center" style="background-image: url('FINALDIWABG.png'); height: 100vh;">
+                <header>
+                    <!-- ========== HEADER ========== -->
+                        <div class="max-w-7xl mx-auto px-5 flex items-center border-b-2 border-gray-100">
+                            <!-- Logo -->
+                            <div class="logo flex-shrink-0">
+                                <!-- Dynamically sized logo -->
+                                <img src="anona.jpg.png" alt="Gallery Logo" class="h-32 w-auto">
+                            </div>
+                            <!-- Navigation Menu -->
+                            <nav class="ml-auto flex space-x-5">
+                                <a href="index.html" id="homeLink">HOME</a>
+                                <a href="/about.html" class="text-gray-800 hover:text-gray-600">ABOUT US!</a>
+                                <a href="/contact.html" class="text-gray-800 hover:text-gray-600">CONTACT</a>
+                                <a href="paintings.html" id="paintingsLink">PAINTINGS</a>
+                            </nav>
+                        </div>
+                    </header>
+                
+                <div id="slider">
+                    <input type="radio" name="slider" id="slide1" checked>
+                    <input type="radio" name="slider" id="slide2">
+                    <input type="radio" name="slider" id="slide3">
+                    <input type="radio" name="slider" id="slide4">
+                    <div id="slides">
+                        <div id="overflow">
+                            <div class="inner">
+                                <div class="slide slide_1">
+                                    <h2>PORTRAITS</h2>
+                                </div>
+                                <div class="slide slide_2">
+                                    <h2>LANDSCAPES</h2>
+                                </div>
+                                <div class="slide slide_3">
+                                    <h2>ABSTRACT</h2>
+                                </div>
+                                <div class="slide slide_4">
+                                    <h2>HISTORICAL</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Section Title -->
+        <section class="bg-green-900 p-6 text-center text-white">
+            <h2 class="text-2xl mb-2">Have a look at our</h2>
+            <h3 class="text-5xl font-bold">ART GALLERY</h3>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 grid grid-cols-2 gap-8 pb-8">
+            <!-- Gallery Item 1 -->
+
+            <div class="gallery-item bg-white p-4 shadow">
+                <img src="image5.jpg" alt="Impressionist oil painting of a tranquil path through an autumn forest" class="w-full mb-2 cursor-pointer" onclick="showModal(this.src)">
+                <h4 class="text-lg font-semibold mb-1">Burn Out</h4>
+                <p class="text-sm text-gray-600">Illaijah V. Ortoza (Tarlac | 2024)</p>
+                <p>Acrylic on Canvas | Portrait</p>
+            </div>
+            
+            <div class="gallery-item bg-white p-4 shadow">
+                <img src="image4.jpg" alt="Impressionist oil painting of a tranquil path through an autumn forest" class="w-full mb-2 cursor-pointer" onclick="showModal(this.src)">
+                <h4 class="text-lg font-semibold mb-1">Ideya at Pag-aalinlangan</h4>
+                <p class="text-sm text-gray-600">Jade Suba (Capas | 2024)</p>
+                <p>Oil and Graphite | Portrait</p>
+            </div>
+
+            <div class="gallery-item bg-white p-4 shadow">
+                <img src="image6.jpg" alt="Impressionist oil painting of a tranquil path through an autumn forest" class="w-full mb-2 cursor-pointer" onclick="showModal(this.src)">
+                <h4 class="text-lg font-semibold mb-1">Steadfast</h4>
+                <p class="text-sm text-gray-600">Edsel L. Naticidad (Tarlac | 2024)</p>
+                <p>Acrylic on Canvas | Portrait</p>
+            </div>
+            
+            <div class="gallery-item bg-white p-4 shadow">
+                <img src="image7.jpg" alt="Impressionist oil painting of a tranquil path through an autumn forest" class="w-full mb-2 cursor-pointer" onclick="showModal(this.src)">
+                <h4 class="text-lg font-semibold mb-1">Paraluman</h4>
+                <p class="text-sm text-gray-600">Adrian D. Silva (Tarlac | 2024)</p>
+                <p>Watercolor on A4 Frame | Portrait</p>
+            </div>
+
+            <div class="gallery-item bg-white p-4 shadow">
+                <img src="image8.jpg" alt="Impressionist oil painting of a tranquil path through an autumn forest" class="w-full mb-2 cursor-pointer" onclick="showModal(this.src)">
+                <h4 class="text-lg font-semibold mb-1">Dubrovnik nights</h4>
+                <p class="text-sm text-gray-600">Rudy Yu (Muntinlupa | 2016)</p>
+                <p>Mixed Media of Threated Canvas | Abstract</p>
+            </div>
+            
+            <div class="gallery-item bg-white p-4 shadow">
+                <img src="image9.jpg" alt="Impressionist oil painting of a tranquil path through an autumn forest" class="w-full mb-2 cursor-pointer" onclick="showModal(this.src)">
+                <h4 class="text-lg font-semibold mb-1">Triumph 7</h4>
+                <p class="text-sm text-gray-600">Kublai Millan (Muntinlupa | 2024)</p>
+                <p>Acrylic on Canvas | Abstract</p>
+            </div>
+
+            <div class="gallery-item bg-white p-4 shadow">
+                <img src="image10.jpg" alt="Impressionist oil painting of a tranquil path through an autumn forest" class="w-full mb-2 cursor-pointer" onclick="showModal(this.src)">
+                <h4 class="text-lg font-semibold mb-1">TNACNR87</h4>
+                <p class="text-sm text-gray-600">Lino Berro Jamisola (Tarlac | 2024)</p>
+                <p>Oil on Canvas | Abstract</p>
+            </div>
+            
+            <div class="gallery-item bg-white p-4 shadow">
+                <img src="image11.jpg" alt="Impressionist oil painting of a tranquil path through an autumn forest" class="w-full mb-2 cursor-pointer" onclick="showModal(this.src)">
+                <h4 class="text-lg font-semibold mb-1">Triumph 2</h4>
+                <p class="text-sm text-gray-600">Kublai Millan (Tarlac | 2024)</p>
+                <p>Acrylic on Canvas | Abstract</p>
+            </div>
+
+            <div class="gallery-item bg-white p-4 shadow">
+                <img src="image12.jpg" alt="Impressionist oil painting of a tranquil path through an autumn forest" class="w-full mb-2 cursor-pointer" onclick="showModal(this.src)">
+                <h4 class="text-lg font-semibold mb-1">Full Moon in Caption</h4>
+                <p class="text-sm text-gray-600">Helena Alegre (Muntinlupa | 2024)</p>
+                <p>Oil on Canvas | Landscape</p>
+            </div>
+            
+            <div class="gallery-item bg-white p-4 shadow">
+                <img src="image13.jpg" alt="Impressionist oil painting of a tranquil path through an autumn forest" class="w-full mb-2 cursor-pointer" onclick="showModal(this.src)">
+                <h4 class="text-lg font-semibold mb-1">Cumulonimbus</h4>
+                <p class="text-sm text-gray-600">Airin D. Sitiji (Muntinlupa | 2024)</p>
+                <p>Oil on Canvas | Landscape</p>
+            </div>
+            
+            <div class="gallery-item bg-white p-4 shadow">
+                <img src="image14.jpg" alt="Impressionist oil painting of a tranquil path through an autumn forest" class="w-full mb-2 cursor-pointer" onclick="showModal(this.src)">
+                <h4 class="text-lg font-semibold mb-1">The Queen of the Night</h4>
+                <p class="text-sm text-gray-600">Helena Alegre (Muntinlupa | 2024)</p>
+                <p>Oil on Canvas | Landscape</p>
+            </div>
+            
+            <div class="gallery-item bg-white p-4 shadow">
+                <img src="image15.jpg" alt="Impressionist oil painting of a tranquil path through an autumn forest" class="w-full mb-2 cursor-pointer" onclick="showModal(this.src)">
+                <h4 class="text-lg font-semibold mb-1">Dapit Hapun</h4>
+                <p class="text-sm text-gray-600">Mark Belicario (Muntinlupa | 2024)</p>
+                <p>Oil on Canvas | Landscape</p>
+            </div>
+
+            <div class="gallery-item bg-white p-4 shadow">
+                <img src="image16.jpg" alt="Impressionist oil painting of a tranquil path through an autumn forest" class="w-full mb-2 cursor-pointer" onclick="showModal(this.src)">
+                <h4 class="text-lg font-semibold mb-1">Peaceful Path</h4>
+                <p class="text-sm text-gray-600">Fernando B. Sena (Tarlac | 2024)</p>
+                <p>Acrylic on Canvas | Landscape</p>
+            </div>
+            
+            <div class="gallery-item bg-white p-4 shadow">
+                <img src="image17.jpg" alt="Impressionist oil painting of a tranquil path through an autumn forest" class="w-full mb-2 cursor-pointer" onclick="showModal(this.src)">
+                <h4 class="text-lg font-semibold mb-1">Forbearance</h4>
+                <p class="text-sm text-gray-600">Renee Avila (Tarlac | 2024)</p>
+                <p>Oil on Canvas | Historical</p>
+            </div>
+
+            <div class="gallery-item bg-white p-4 shadow">
+                <img src="image18.jpg" alt="Impressionist oil painting of a tranquil path through an autumn forest" class="w-full mb-2 cursor-pointer" onclick="showModal(this.src)">
+                <h4 class="text-lg font-semibold mb-1">Five Loaves, Two Fishes III</h4>
+                <p class="text-sm text-gray-600">Fernando B. Sena (Tarlac | 2024)</p>
+                <p>Acrylic on Canvas | Historical</p>
+            </div>
+            
+            <div class="gallery-item bg-white p-4 shadow">
+                <img src="image19.jpg"alt="Impressionist oil painting of a tranquil path through an autumn forest" class="w-full mb-2 cursor-pointer" onclick="showModal(this.src)">
+                <h4 class="text-lg font-semibold mb-1">Kaligayahan Noon</h4>
+                <p class="text-sm text-gray-600">Mark Kenneth S. Garcia (Muntinlupa | 2024)</p>
+                <p>Acrylic on Canvas | Historical</p>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- ========== MODAL ========== -->
+    <div class="modal" id="imageModal">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <img id="modalImage" src="" alt="Zoomed artwork">
+    </div>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="footer-header">
+            <h2>The Art Gallery of Diwa ng Tarlac</h2>
+        </div>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>The Art Gallery of Diwa ng Tarlac</h4>
+                <p>FHMQ+256, Romulo Blvd,</p>
+                <p>Tarlac City, Tarlac</p>
+            </div>
+            <div class="footer-section">
+                <h4>Web Pages</h4>
+                <p>Landing Page</p>
+                <p>Home</p>
+                <p>About Us!</p>
+                <p>Contacts</p>
+                <p>Paintings</p>
+            </div>
+            <div class="footer-section">
+                <h4>Art Gallery</h4>
+                <p>Paintings</p>
+                <p>Title</p>
+                <p>Artist</p>
+                <p>Genre</p>
+            </div>
+            <div class="footer-section">
+                <h4>Social</h4>
+                <p>Facebook</p>
+                <p>Gmail</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © PANCHO-QUITALIG-GAMUNDOY-CALMA-VELASCO
+        </div>
+    </footer>
+    <!-- JavaScript for Modal -->
+    <script>
+         function showModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            modalImage.src = imageSrc;
+            modal.classList.add('show');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('show');
+        }
+    </script>
+
+</body>
+</html>
+
+

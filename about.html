@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diwa ng Tarlac Gallery</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+            color: #1e3706;
+        }
+
+        body {
+            background-image: url('FINALDIWABG.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px 20px;
+        }
+
+        header .logo img {
+            height: 20%; /* Keep or adjust height as needed */
+            width: 25%;  /* Set equal width to make it circular */
+            border-radius: 50%; /* Make the image circular */
+            object-fit: cover; /* Ensure the image scales to cover the entire circle */
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background-color: white;
+            width: 100%;
+            margin: auto;
+        }
+
+        /* About Us Section */
+        .about-us {
+            display: flex;
+            flex-direction: column;
+            text-align: justify;
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .about-us h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .about-us p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .team {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #ddd;
+        }
+
+        .team-member h3 {
+            font-size: 1em;
+            margin-top: 10px;
+        }
+
+        .team-member span {
+            font-size: 0.9em;
+            color: #1e1b1b;
+        }
+
+        /* Contact Section */
+        #contact {
+            display: none; /* Initially hidden */
+            padding: 60px;
+        }
+
+              /* Footer Styling */
+.footer {
+    background-color: #f3f4f6; /* Light gray background */
+    padding: 0; /* Remove default padding for the main footer */
+    font-family: Arial, sans-serif;
+    color: #1e1e1e;
+}
+
+/* Green header section */
+.footer-header {
+    background-color: #1e3706; /* Green background */
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.footer-header h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    color: white;
+}
+
+/* Footer content */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Makes it responsive */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f3f4f6;
+}
+
+.footer-section {
+    flex: 1; /* Equal width for all sections */
+    min-width: 200px; /* Ensures it fits smaller screens */
+    margin: 10px;
+}
+
+.footer-section h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #1e3706; /* Slight green for headers */
+}
+
+.footer-section p {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #4a4a4a;
+}
+
+/* Footer bottom section */
+.footer-bottom {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 10px;
+    color: #606060;
+    padding: 10px;
+    background-color: #e5e7eb; /* Light gray background for the bottom */
+    border-top: 1px solid #d1d5db; /* Divider line */
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="anona.jpg.png" alt="Gallery Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/index.html" id=>HOME</a></li>
+                <li><a id="#">ABOUT US!</a></li>
+                <li><a href="/contact.html" id=>CONTACT</a></li>
+                <li><a href="paintings.html" id="paintingsLink">PAINTINGS</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+
+    <!-- About Us Section (Visible by Default) -->
+    <div class="about-us">
+        <h1>ABOUT US!</h1>
+        <p>The website "The Art Paintings of Diwa ng Tarlac" aims to create an online art portfolio showcasing a diverse collection of paintings, including portraits, landscapes, abstracts, and historical pieces. We aim to reach out to artists, art enthusiasts, collectors, and local residents. The website will feature detailed presentations of each artwork, including title, artist, date, genre, and materials used. An online platform serves as a virtual gallery, allowing artists to present their best works in a curated manner, which is essential for attracting potential buyers and collaborators.</p>
+
+        <div class="team">
+            <div class="team-member">
+                <img src="AC1.jpg" alt="Arwen Claide">
+                <h3>Quitalig, Arwen Claide</h3>
+                <span>WEB PROGRAMMER</span>
+            </div>
+            <div class="team-member">
+                <img src="IRISH.jpg" alt="Irish Pancho">
+                <h3>Pancho, Irish</h3>
+                <span>WEB DESIGNER</span>
+            </div>
+            <div class="team-member">
+                <img src="KING.jpg" alt="King Christian Gamundoy">
+                <h3>Gamundoy, King Christian</h3>
+                <span>WEB PROGRAMMER</span>
+            </div>
+            <div class="team-member">
+                <img src="MERREL.png" alt="Merrell Depp Calma">
+                <h3>Calma, Merrell Depp</h3>
+                <span>WEB DESIGNER</span>
+            </div>
+            <div class="team-member">
+                <img src="TEPHOY.jpg" alt="Stephen John Velasco">
+                <h3>Velasco, Stephen John</h3>
+                <span>WEB DESIGNER</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contact">
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-header">
+        <h2>The Art Gallery of Diwa ng Tarlac</h2>
+    </div>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h4>The Art Gallery of Diwa ng Tarlac</h4>
+            <p>FHMQ+256, Romulo Blvd,</p>
+            <p>Tarlac City, Tarlac</p>
+        </div>
+        <div class="footer-section">
+            <h4>Web Pages</h4>
+            <p>Landing Page</p>
+            <p>Home</p>
+            <p>About Us!</p>
+            <p>Contacts</p>
+            <p>Paintings</p>
+        </div>
+        <div class="footer-section">
+            <h4>Art Gallery</h4>
+            <p>Paintings</p>
+            <p>Title</p>
+            <p>Artist</p>
+            <p>Genre</p>
+        </div>
+        <div class="footer-section">
+            <h4>Social</h4>
+            <p>Facebook</p>
+            <p>Gmail</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © PANCHO-QUITALIG-GAMUNDOY-CALMA-VELASCO
+    </div>
+</footer>
+
+
+    <script>
+        const aboutSection = document.querySelector('.about-us');
+        const contactSection = document.getElementById('contact');
+        const aboutLink = document.getElementById('aboutLink');
+        const contactLink = document.getElementById('contactLink');
+
+        // Show "About Us" by default
+        aboutSection.style.display = 'flex';
+
+        // Add event listeners
+        homeLink.addEventListener('click', () => {
+            aboutSection.style.display = 'none';
+            contactSection.style.display = 'none';
+        });
+
+        aboutLink.addEventListener('click', () => {
+            aboutSection.style.display = 'flex';
+            contactSection.style.display = 'none';
+        });
+
+        contactLink.addEventListener('click', () => {
+            aboutSection.style.display = 'none';
+            contactSection.style.display = 'block';
+        });
+    </script>
+    
+</body>
+</html>
